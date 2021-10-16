@@ -1,0 +1,78 @@
+import { Avatar } from "@chakra-ui/avatar";
+import { Button } from "@chakra-ui/button";
+import { Box, Flex, Link, Spacer, HStack, Text } from "@chakra-ui/layout";
+import styled from "styled-components";
+
+import React from "react";
+import {
+  FiGrid,
+  FiMessageCircle,
+  FiBriefcase,
+  FiBell,
+  FiChevronDown,
+} from "react-icons/fi";
+import OlxIcon from "../../components/icons/olx-icon";
+
+const TextStyle = styled(Text)`
+  margin: 0 8px;
+`;
+
+export const Menu = () => {
+  return (
+    <Flex h="80px" maxWidth="1272px" margin="0 auto">
+      <Box display="flex" justifyContent="center" alignItems="center">
+        <HStack spacing={12}>
+          <OlxIcon />
+          <TextStyle p color="text.heading" fontSize="0.875rem">
+            Buscar
+          </TextStyle>
+        </HStack>
+      </Box>
+      <Spacer />
+      <Box display="flex">
+        <Box p="4" display="flex" justifyContent="center" alignItems="center">
+          <FiBriefcase color="#4f4f4f" size={24} />
+          <TextStyle color="text.heading" fontSize="0.875rem">
+            Plano Profissional
+          </TextStyle>
+        </Box>
+        <Box p="4" display="flex" justifyContent="center" alignItems="center">
+          <FiGrid size={24} color="#4f4f4f" />
+          <TextStyle color="text.heading" fontSize="0.875rem">
+            Meus Anúncios
+          </TextStyle>
+        </Box>
+        <Box p="4" display="flex" justifyContent="center" alignItems="center">
+          <FiMessageCircle size={24} color="#4f4f4f" />
+          <TextStyle color="text.heading" fontSize="0.875rem">
+            Chat
+          </TextStyle>
+        </Box>
+        <Box p="4" display="flex" justifyContent="center" alignItems="center">
+          <FiBell size={24} color="#4f4f4f" />
+          <TextStyle color="text.heading" fontSize="0.875rem">
+            Notificações
+          </TextStyle>
+        </Box>
+        <Box p="4" display="flex" justifyContent="center" alignItems="center">
+          <Avatar size="sm" src="https://bit.ly/dan-abramov" />
+          <TextStyle color="text.heading" fontSize="0.875rem">
+            Dan Abramov
+          </TextStyle>
+          <HStack spacing={8}>
+            <FiChevronDown size={12} color="#4f4f4f" />
+            <Button
+              borderRadius="30px"
+              color="white"
+              bgColor="secondary.orange"
+            >
+              Anunciar
+            </Button>
+          </HStack>
+        </Box>
+      </Box>
+    </Flex>
+  );
+};
+
+export default Menu;
