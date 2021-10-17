@@ -4,8 +4,11 @@ import {
   Text,
   Heading,
   Input,
+  HStack,
   VStack,
+  Button,
   Checkbox,
+  Tooltip,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import OlxIcon from "../components/icons/olx-icon";
@@ -13,10 +16,25 @@ import { InputText } from "./components/input-text";
 import { CategoryItem } from "./components/category-item";
 import { FiTv, FiDribbble } from "react-icons/fi";
 import { GrCar } from "react-icons/gr";
-import { AiOutlineTool } from "react-icons/ai";
+import { AiOutlineTool, AiOutlineInfoCircle } from "react-icons/ai";
+import { useHistory } from "react-router-dom";
 
 export default function Form() {
   const [selected, setSelected] = useState("");
+  const [reparationNeed, setReparationNeed] = useState(false);
+  const history = useHistory();
+
+  const handleReparation = () => {
+    setReparationNeed(!reparationNeed);
+  };
+
+  const goNextPage = () => {
+    if (selected) {
+      history.push("service-form");
+    } else {
+      history.push("/");
+    }
+  };
 
   return (
     <Flex w="100%" direction="column">
@@ -117,20 +135,72 @@ export default function Form() {
               padding="24px"
               maxW={{ sm: "90%", md: "500px" }}
             >
-              <Input heigth="60px" placeholder="Média de seus serviços" />
-              <VStack spacing={10} direction="row">
-                <Checkbox size="sm" colorScheme="red">
-                  Checkbox
+              <Input heigth="60px" placeholder="Tempo médio de seus serviços" />
+              <Text fontWeight="bold" color="text.heading" mt="4">
+                Tipo de seu serviço*
+              </Text>
+              <VStack spacing={2} direction="column" alignItems="start" mt="4">
+                <Checkbox size="lg" colorScheme="blue">
+                  Eletrônicos/Informática
                 </Checkbox>
-                <Checkbox size="md" colorScheme="green" defaultIsChecked>
-                  Checkbox
+                <Checkbox size="lg" colorScheme="blue" defaultIsChecked>
+                  Roupas/Téxtil
                 </Checkbox>
-                <Checkbox size="lg" colorScheme="orange" defaultIsChecked>
-                  Checkbox
+                <Checkbox size="lg" colorScheme="blue" defaultIsChecked>
+                  Mecânico
+                </Checkbox>
+                <Checkbox size="lg" colorScheme="blue" defaultIsChecked>
+                  Elétrico
+                </Checkbox>
+                <Checkbox size="lg" colorScheme="blue" defaultIsChecked>
+                  Doméstico
+                </Checkbox>
+                <Checkbox size="lg" colorScheme="blue" defaultIsChecked>
+                  Outro
                 </Checkbox>
               </VStack>
             </Flex>
           )}
+          {selected !== "Serviços" && (
+            <VStack spacing={2} direction="column" alignItems="start" mt="4">
+              <Checkbox
+                size="lg"
+                colorScheme="blue"
+                onChange={handleReparation}
+              >
+                Seu objeto necessita de serviço de restauração?
+              </Checkbox>
+              <Flex alignItems="center">
+                <AiOutlineInfoCircle color="#d2d2d2" />
+                <Text
+                  fontSize="1rem"
+                  color="text.description"
+                  maxW="500px"
+                  marginLeft="4px"
+                >
+                  Essa funcionalidade permite que você desapegue de objetos que
+                  precisam de reparos/conserto/reforma de maneira descomplicada.
+                </Text>
+              </Flex>
+            </VStack>
+          )}
+          <Button
+            as="a"
+            bg="secondary.orange"
+            color="white"
+            maxW="300px"
+            alignSelf="flex-end"
+            cursor="pointer"
+            opacity="0.9"
+            _hover={{
+              opacity: 1,
+            }}
+            onClick={goNextPage}
+          >
+            {reparationNeed
+              ? "Ir para descrição dos reparos"
+              : "Publicar anúncio"}
+          </Button>
         </Flex>
       </Flex>
     </Flex>

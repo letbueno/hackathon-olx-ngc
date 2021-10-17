@@ -1,12 +1,20 @@
 import React from "react";
-import { Grid, Box, Link, Flex, Text } from "@chakra-ui/react";
+import { Grid, Box, Link, Flex, Text, Tag, VStack } from "@chakra-ui/react";
 
 const RecommendationGridItem = () => (
-  <Link w="full" h="200px" textDecoration="none">
+  <Link w="full" h="200px" textDecoration="none" marginBottom="24px">
     <Box marginBottom="8px">
       <Box w="full" h="120px" bg="cyan.500" borderRadius="8px" />
     </Box>
     <Box>
+      <Tag
+        size="sm"
+        variant="solid"
+        bgColor="secondary.orange"
+        textDecoration="none"
+      >
+        Precisa de Reparo
+      </Tag>
       <Text color="text.heading" fontSize="0.875rem">
         Fiat Uno Fire Flex Economy
       </Text>

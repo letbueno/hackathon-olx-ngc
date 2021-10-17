@@ -22,7 +22,9 @@ export const Menu = () => {
     <Flex h="80px" maxWidth="1272px" margin="0 auto">
       <Box display="flex" justifyContent="center" alignItems="center">
         <HStack spacing={12}>
-          <OlxIcon />
+          <Link to="/">
+            <OlxIcon />
+          </Link>
           <TextStyle p color="text.heading" fontSize="0.875rem">
             Buscar
           </TextStyle>

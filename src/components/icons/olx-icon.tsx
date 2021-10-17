@@ -1,10 +1,20 @@
+import { useHistory } from 'react-router-dom';
+
 export default function OlxIcon() {
+  const history = useHistory();
+
+  const goHomePage = () => {
+    history.push('/')
+  }
+
   return (
     <svg
+      onClick={goHomePage}
       xmlns="http://www.w3.org/2000/svg"
       width="48"
       height="48"
       viewBox="0 0 40 40"
+      style={{ cursor: "pointer" }}
     >
       <g fill="none" fill-rule="evenodd">
         <path

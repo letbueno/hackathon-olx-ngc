@@ -1,5 +1,7 @@
 import React from "react";
-import { Box, Flex, Heading, Text, Textarea } from "@chakra-ui/react";
+import { Box, Flex, Heading, Text, Textarea, Center } from "@chakra-ui/react";
+import { FaCamera } from "react-icons/fa";
+import { PrimaryButton } from "../components/primary-button";
 
 export default function ServiceForm() {
   return (
@@ -57,21 +59,35 @@ export default function ServiceForm() {
           <Text fontWeight="semibold" color="text.heading">
             Fotos do defeito
           </Text>
-          <Text color="text.description">
+          <Text color="text.description" marginBottom="16px">
             Adicione até
-            <Text as="strong" color="text.heading">
+            <Text as="strong" color="text.heading" marginLeft="4px">
               6 fotos
             </Text>
           </Text>
-          <Box
-            border="1px dashed secondary.purple"
+          <Center
+            borderWidth="1px"
+            borderStyle="dashed"
+            borderColor="secondary.purple"
             display="flex"
             flexDirection="column"
+            gridGap="4px"
+            maxWidth="192px"
+            padding="16px 4px"
           >
-            <Text color="secondary.purple">Adicionar Fotos </Text>
-            <Text color="secondary.purple">JPG, GIF e PNG somente </Text>
-          </Box>
+            <FaCamera size={48} color="rgb(134, 27, 169)" />
+            <Text fontSize="18px" color="secondary.purple" fontWeigth="bold">
+              Adicionar Fotos
+            </Text>
+            <Text fontSize="14px" color="secondary.purple">
+              JPG, GIF e PNG somente
+            </Text>
+          </Center>
         </Box>
+
+        <PrimaryButton maxWidth="360px" alignSelf="end">
+          Confirmar solicitação
+        </PrimaryButton>
       </Flex>
     </Flex>
   );
