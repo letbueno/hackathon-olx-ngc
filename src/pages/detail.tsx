@@ -188,6 +188,7 @@ export default function Detail() {
                   color="secondary.orange"
                   fontWeight="regular"
                   width="max-content"
+                  href="/buy-repair/:id"
                   bg="rgb(253, 240, 226)"
                   _hover={{
                     background: "rgb(255, 225, 191)",

@@ -6,6 +6,7 @@ import Form from "./pages/form";
 import ServiceForm from "./pages/service-form";
 import Detail from "./pages/detail";
 import Confirmation from "./pages/confirmation";
+import BuyRepairForm from "./pages/buy-repair";
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
         </Route>
         <Route path="/detail/:id">
           <Detail />
+        </Route>
+        <Route path="/buy-repair/:id">
+          <BuyRepairForm />
         </Route>
       </Switch>
     </Router>
