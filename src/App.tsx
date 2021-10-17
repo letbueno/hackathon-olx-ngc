@@ -5,6 +5,7 @@ import Home from "./pages/home";
 import Form from "./pages/form";
 import ServiceForm from "./pages/service-form";
 import Detail from "./pages/detail";
+import Confirmation from "./pages/confirmation";
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
         </Route>
         <Route path="/service-form">
           <ServiceForm />
+        </Route>
+        <Route path="/confirmation">
+          <Confirmation />
         </Route>
         <Route path="/detail/:id">
           <Detail />

@@ -40,7 +40,7 @@ export function CategoryItem({
       }}
       w={{ sm: "100%", md: "90%", lg: "500px" }}
       p="12px"
-      borderBottom="1px solid #d2d2d2"
+      border="1px solid #d2d2d2"
       justify="start"
       alignItems="center"
       onClick={handleSelect}

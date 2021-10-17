@@ -49,12 +49,7 @@ export function Footer() {
         alignItems="start"
         gridGap="4px"
       >
-        <Text
-          display="flex"
-          gridGao="4px"
-          fontSize="12px"
-          fontColor="text.heading"
-        >
+        <Text display="flex" gridGap="4px" fontSize="12px" color="text.heading">
           <Text as="strong" textDecoration="underline" color="text.heading">
             Sobre a OLX,
           </Text>
@@ -69,7 +64,7 @@ export function Footer() {
             Proteção à Propriedade Intelectual
           </Text>
         </Text>
-        <Text fontSize="12px" fontColor="text.heading">
+        <Text fontSize="12px" color="text.heading">
           © Bom Negócio Atividades de Internet Ltda. Rua do Catete, 359,
           Flamengo - 22220-001 - Rio de Janeiro, RJ
         </Text>

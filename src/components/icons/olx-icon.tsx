@@ -1,11 +1,11 @@
-import { useHistory } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 
 export default function OlxIcon() {
   const history = useHistory();
 
   const goHomePage = () => {
-    history.push('/')
-  }
+    history.push("/");
+  };
 
   return (
     <svg
@@ -16,7 +16,7 @@ export default function OlxIcon() {
       viewBox="0 0 40 40"
       style={{ cursor: "pointer" }}
     >
-      <g fill="none" fill-rule="evenodd">
+      <g fill="none" fillRule="evenodd">
         <path
           fill="#6E0AD6"
           d="M7.579 26.294c-2.282 0-3.855-1.89-3.855-4.683 0-2.82 1.573-4.709 3.855-4.709 2.28 0 3.855 1.889 3.855 4.682 0 2.82-1.574 4.71-3.855 4.71m0 3.538c4.222 0 7.578-3.512 7.578-8.248 0-4.682-3.173-8.22-7.578-8.22C3.357 13.363 0 16.874 0 21.61c0 4.763 3.173 8.221 7.579 8.221"

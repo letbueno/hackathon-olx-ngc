@@ -53,8 +53,8 @@ export function PickState() {
 
       <Box display="flex" gridGap="8px">
         {states.map((state) => (
-          <Link>
-            <Text key={state} color="secondary.purple" fontWeight="semibold">
+          <Link key={state}>
+            <Text color="secondary.purple" fontWeight="semibold">
               {state}
             </Text>
           </Link>

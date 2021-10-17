@@ -15,9 +15,9 @@ export const PremiumIcon = () => (
     <g
       id="OLX---New"
       stroke="none"
-      stroke-width="1"
+      strokeWidth="1"
       fill="none"
-      fill-rule="evenodd"
+      fillRule="evenodd"
     >
       <g
         id="Desktop---Componentes"
@@ -33,13 +33,13 @@ export const PremiumIcon = () => (
                 d="M25,1.44723075 C25,0.354221889 24.6364117,-3.55271368e-15 23.4874725,-3.55271368e-15 L1.55487061,-3.55271368e-15 C0.330877304,-3.55271368e-15 3.2063241e-13,0.327758789 -1.82209803e-12,1.44723075 L-1.83320026e-12,29.5238095 L12.5,23.9507185 C12.499992,23.950723 16.6666587,25.8084201 25,29.5238095 L25,1.44723075 Z"
                 id="Mask"
                 fill="#28B5D9"
-                fill-rule="nonzero"
+                fillRule="nonzero"
               ></path>
               <g
                 id="Group"
                 transform="translate(6.250000, 7.857143)"
                 fill="#FFFFFF"
-                fill-rule="nonzero"
+                fillRule="nonzero"
               >
                 <polygon
                   id="Shape"
