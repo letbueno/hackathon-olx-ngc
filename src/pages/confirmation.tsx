@@ -90,16 +90,24 @@ export default function Confirmation() {
             >
               Fique atento aos próximos passos!
             </Text>
-            <OrderedList gridGap="24px" display="flex" flexDirection="column">
+            <OrderedList
+              gridGap="24px"
+              display="flex"
+              flexDirection="column"
+              mb="4"
+            >
               <ListItem>
-                Agora o Prestador irá avaliar sua solitação, assim que ela for
-                finalizada, você receberá um e-mail com as próximas instruções
+                O seu anúncio está sendo processado e, quando ele ficar ativo,
+                enviaremos um e-mail.
               </ListItem>
               <ListItem>
-                O Prestador tem 5 dias úteis para retornar a avaliação e opções
-                de manutenção, incluindo faixa de valores e de tempo de reparo.
-                Existindo risco de cancelamento em caso de descumprimento do
-                prazo
+                Agora os consumidores terão acesso a descrição das avarias de
+                seu objeto, podendo optar por realizar manutenção ou não.
+              </ListItem>
+              <ListItem>
+                Caso a sua venda ocorra junto a uma manutenção, você receberá um
+                e-mail com as instruções de como prosseguir entrega para o
+                prestador de serviço!
               </ListItem>
               <ListItem>
                 Não se preocupe, a OLX cuidará do processo inteirinho para você,

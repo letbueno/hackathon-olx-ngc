@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { Grid, Box, Link, Flex, Text, Tag, VStack } from "@chakra-ui/react";
 
 const products = [
@@ -30,10 +31,20 @@ const products = [
   },
 ];
 const RecommendationGridItem = () => {
+  const history = useHistory();
+  const goToDetail = () => history.push("/detail/iphone-7-32gb-tela-quebrada");
+
   return (
     <>
       {products.map((product) => (
-        <Link w="full" h="200px" marginBottom="24px" _hover={{}}>
+        <Link
+          w="full"
+          h="200px"
+          marginBottom="24px"
+          _hover={{}}
+          key={product.title}
+          onClick={goToDetail}
+        >
           <Box marginBottom="8px">
             <Box w="full" h="120px" bg="cyan.500" borderRadius="8px" />
           </Box>

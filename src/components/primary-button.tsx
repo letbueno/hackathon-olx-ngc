@@ -12,6 +12,7 @@ export const PrimaryButton: React.FC<ButtonProps> = (props) => {
       w="full"
       fontSize="0.875rem"
       fontWeight="bold"
+      _hover={{ background: "rgb(227, 118, 0)" }}
       {...rest}
     >
       <Center>{children}</Center>

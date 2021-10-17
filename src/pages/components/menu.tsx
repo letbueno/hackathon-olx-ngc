@@ -21,7 +21,7 @@ export const Menu = () => {
   return (
     <Flex h="80px" maxWidth="1272px" margin="0 auto">
       <Box display="flex" justifyContent="center" alignItems="center">
-        <HStack spacing={12}>
+        <HStack spacing={12} paddingLeft="4">
           <Link to="/">
             <OlxIcon />
           </Link>
@@ -31,7 +31,7 @@ export const Menu = () => {
         </HStack>
       </Box>
       <Spacer />
-      <Box display="flex">
+      <Flex display={["none", "none", "flex"]}>
         <Box p="4" display="flex" justifyContent="center" alignItems="center">
           <FiBriefcase color="#4f4f4f" size={24} />
           <TextStyle color="text.heading" fontSize="0.875rem">
@@ -63,18 +63,23 @@ export const Menu = () => {
           </TextStyle>
           <HStack spacing={8}>
             <FiChevronDown size={12} color="#4f4f4f" />
-            <Button
-              as="a"
-              href="/form"
-              borderRadius="30px"
-              color="white"
-              bgColor="secondary.orange"
-            >
-              Anunciar
-            </Button>
           </HStack>
         </Box>
-      </Box>
+      </Flex>
+      <Flex alignItems="center" paddingRight="4">
+        <Button
+          as="a"
+          href="/form"
+          borderRadius="30px"
+          color="white"
+          bgColor="secondary.orange"
+          _focus={{
+            border: "none",
+          }}
+        >
+          Anunciar
+        </Button>
+      </Flex>
     </Flex>
   );
 };

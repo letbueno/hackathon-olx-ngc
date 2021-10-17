@@ -39,6 +39,7 @@ function PremiumGalleryItem() {
           textDecoration="none"
           marginBottom="32px;"
           _hover={{}}
+          key={product.title}
         >
           <Box marginBottom="8px">
             <Box w="full" h="160px" bg="cyan.500" borderRadius="8px" />

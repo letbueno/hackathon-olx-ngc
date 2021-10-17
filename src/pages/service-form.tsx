@@ -1,19 +1,11 @@
 import React from "react";
-import {
-  Box,
-  Flex,
-  Heading,
-  Text,
-  Textarea,
-  Center,
-  Input,
-} from "@chakra-ui/react";
+import { Box, Flex, Heading, Text, Textarea, Center } from "@chakra-ui/react";
 import { useHistory } from "react-router-dom";
 import { FaCamera } from "react-icons/fa";
 import { FiClock, FiArrowRight } from "react-icons/fi";
 import { PrimaryButton } from "../components/primary-button";
 import { MarkerIcon } from "../components/icons/marker-icon";
-import OlxIcon from "../components/icons/olx-icon";
+import { GenericHeader } from "./components/generic-header";
 
 export default function ServiceForm() {
   const history = useHistory();
@@ -22,28 +14,7 @@ export default function ServiceForm() {
 
   return (
     <Flex flexDirection="column">
-      <Flex
-        as="header"
-        w="100%"
-        p="24px"
-        justify="space-between"
-        margin="auto"
-        borderBottom="0.5px solid #c4c4c4"
-        marginBottom="48px"
-      >
-        <OlxIcon />
-        <Flex
-          bg="secondary.lightPurple"
-          borderRadius="100px"
-          w="150px"
-          alignItems="center"
-          justify="center"
-        >
-          <Text>
-            <Text as="strong">Olá,</Text> Dan Ambrov!
-          </Text>
-        </Flex>
-      </Flex>
+      <GenericHeader />
       <Flex
         flexDirection="column"
         maxWidth="1300px"
@@ -56,6 +27,7 @@ export default function ServiceForm() {
           fontWeight="bold"
           color="text.heading"
           alignSelf="center"
+          m="32px 0 16px 0"
         >
           Nos conte sobre a reparação do seu objeto
         </Heading>
@@ -66,90 +38,11 @@ export default function ServiceForm() {
           borderRadius="4"
           gridGap="32px"
         >
-          <Text fontSize="20px" color="text.heading" maxWidth="695px">
-            Nessa etapa do processo, vamos verificar se existem prestadores de
-            serviço próximos a você!
+          <Text fontSize="16px" color="text.heading" maxWidth="695px">
+            Nessa etapa do processo, certifique-se de especificar todas as
+            avarias do objeto, dessa forma o consumidor fará uma compra mais
+            consiente!
           </Text>
-
-          <Box
-            display="flex"
-            flexDirection="column"
-            maxWidth="452px"
-            width="full"
-          >
-            <Text
-              fontWeight="semibold"
-              color="text.heading"
-              marginBottom="16px"
-            >
-              Localização*
-            </Text>
-            <Input
-              border="1px solid #c4c4c4"
-              placeholder="CEP*"
-              height="56px"
-              borderRadius="4px"
-              maxWidth="228px"
-            />
-
-            <Text
-              fontWeight="semibold"
-              color="text.heading"
-              marginBottom="16px"
-              marginTop="64px"
-            >
-              Selecione um prestador para entrar em contato*
-            </Text>
-
-            <Flex gridGap="6px" alignItems="center">
-              <Center
-                flexDirection="column"
-                borderWidth="1px"
-                borderStyle="solid"
-                borderColor="#e5e5e5"
-                padding="8px 16px"
-                gridGap="12px"
-                width="210px"
-              >
-                <Text
-                  fontSize="14px"
-                  fontWeight="semibold"
-                  color="text.heading"
-                >
-                  MyCell Consertos
-                </Text>
-                <Box
-                  display="flex"
-                  gridGap="8px"
-                  alignItems="center"
-                  justifyContent="start"
-                  width="full"
-                >
-                  <MarkerIcon />
-                  <Text fontSize="14px" color="text.heading">
-                    1km de distância
-                  </Text>
-                </Box>
-                <Box
-                  display="flex"
-                  gridGap="8px"
-                  alignItems="center"
-                  justifyContent="start"
-                  width="full"
-                >
-                  <FiClock size={24} color="rgb(134, 27, 169)" />
-                  <Text fontSize="14px" color="text.heading">
-                    Tempo médio: 5 dias
-                  </Text>
-                </Box>
-                <Text fontSize="12px" fontWeight="light" color="text.heading">
-                  Selecionado
-                </Text>
-              </Center>
-              <FiArrowRight size={24} />
-            </Flex>
-          </Box>
-
           <Box
             display="flex"
             flexDirection="column"
@@ -206,6 +99,70 @@ export default function ServiceForm() {
                 JPG, GIF e PNG somente
               </Text>
             </Center>
+          </Box>
+
+          <Box
+            display="flex"
+            flexDirection="column"
+            maxWidth="452px"
+            width="full"
+          >
+            <Text fontWeight="semibold" color="text.heading" m="16px 0px">
+              Dê uma olhada nos prestadores próximos a você*
+            </Text>
+
+            <Flex gridGap="6px" alignItems="center">
+              <Center
+                flexDirection="column"
+                borderWidth="1px"
+                borderStyle="solid"
+                borderColor="#e5e5e5"
+                padding="8px 16px"
+                gridGap="12px"
+                width="210px"
+              >
+                <Text
+                  fontSize="14px"
+                  fontWeight="semibold"
+                  color="text.heading"
+                >
+                  MyCell Consertos
+                </Text>
+                <Box
+                  display="flex"
+                  gridGap="8px"
+                  alignItems="center"
+                  justifyContent="start"
+                  width="full"
+                >
+                  <MarkerIcon />
+                  <Text fontSize="14px" color="text.heading">
+                    1km de distância
+                  </Text>
+                </Box>
+                <Box
+                  display="flex"
+                  gridGap="8px"
+                  alignItems="center"
+                  justifyContent="start"
+                  width="full"
+                >
+                  <FiClock size={24} color="rgb(134, 27, 169)" />
+                  <Text fontSize="14px" color="text.heading">
+                    Tempo médio: 5 dias
+                  </Text>
+                </Box>
+                <Text
+                  fontSize="12px"
+                  fontWeight="light"
+                  color="text.heading"
+                  textDecoration="underline"
+                >
+                  Ver avaliações
+                </Text>
+              </Center>
+              <FiArrowRight size={24} />
+            </Flex>
           </Box>
 
           <PrimaryButton

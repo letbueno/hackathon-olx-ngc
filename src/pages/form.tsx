@@ -8,66 +8,55 @@ import {
   VStack,
   Button,
   Checkbox,
-  Spacer,
+  useNumberInput,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import OlxIcon from "../components/icons/olx-icon";
 import { InputText } from "./components/input-text";
 import { CategoryItem } from "./components/category-item";
-import { FiTv, FiSmartphone } from "react-icons/fi";
-import { BiBed, BiBasketball } from "react-icons/bi";
-import { GrCar } from "react-icons/gr";
-import { AiOutlineTool, AiOutlineInfoCircle } from "react-icons/ai";
+import { FaPhoneSquareAlt } from "react-icons/fa";
+import { GenericHeader } from "./components/generic-header";
+import { categories } from "../constants/announce-categorys";
+import { AiOutlineInfoCircle, AiOutlineSkin } from "react-icons/ai";
 import { useHistory } from "react-router-dom";
-import { IoPawOutline } from "react-icons/io5";
-import { FaPhoneSquareAlt, FaGuitar, FaBabyCarriage } from "react-icons/fa";
+
 export default function Form() {
   const [selected, setSelected] = useState("");
   const [reparationNeed, setReparationNeed] = useState(false);
   const history = useHistory();
+  const { getInputProps, getIncrementButtonProps, getDecrementButtonProps } =
+    useNumberInput({
+      step: 1,
+      defaultValue: 1,
+      min: 1,
+      max: 30,
+      precision: 0,
+    });
 
   const handleReparation = () => {
     setReparationNeed(!reparationNeed);
   };
 
   const goNextPage = () => {
-    if (selected) {
+    if (reparationNeed) {
       history.push("service-form");
     } else {
-      history.push("/");
+      history.push("/detail/:id");
     }
   };
 
+  const inc = getIncrementButtonProps();
+  const dec = getDecrementButtonProps();
+  const input = getInputProps({ readOnly: true });
+
   return (
-    <Flex w="100%" direction="column">
-      <Flex
-        as="header"
-        w="100%"
-        p="24px"
-        justify="center"
-        margin="auto"
-        borderBottom="0.5px solid #c4c4c4"
-      >
-        <Box display="flex" w="90%" justifyContent="space-between">
-          <OlxIcon />
-          <Flex
-            bg="secondary.lightPurple"
-            borderRadius="100px"
-            w="150px"
-            alignItems="center"
-            justify="center"
-          >
-            <Text fontSize="xs">
-              <strong>Olá,</strong> Dan Ambrov!
-            </Text>
-          </Flex>
-        </Box>
-      </Flex>
+    <Flex w="100%" direction="column" pb="4">
+      <GenericHeader />
       <Flex
         direction="column"
         justify="center"
         alignItems="center"
         p="0px 22px"
+        m="32px 0 16px 0"
       >
         <Heading
           color="text.heading"
@@ -99,97 +88,16 @@ export default function Form() {
                 direction="column"
                 mt="8px"
               >
-                <CategoryItem
-                  label="Imóveis"
-                  setSelected={setSelected}
-                  selected={selected}
-                >
-                  <FiTv color="primary" />
-                </CategoryItem>
-                <CategoryItem
-                  label="Auto e peças"
-                  setSelected={setSelected}
-                  selected={selected}
-                >
-                  <GrCar color="primary" />
-                </CategoryItem>
-                <CategoryItem
-                  label="Para a sua casa"
-                  setSelected={setSelected}
-                  selected={selected}
-                >
-                  <BiBed color="primary" />
-                </CategoryItem>
-                <CategoryItem
-                  label="Eletrônicos e celulares"
-                  setSelected={setSelected}
-                  selected={selected}
-                >
-                  <FiSmartphone color="primary" />
-                </CategoryItem>
-                <CategoryItem
-                  label="Música e hobbies"
-                  setSelected={setSelected}
-                  selected={selected}
-                >
-                  <FaGuitar color="primary" />
-                </CategoryItem>
-                <CategoryItem
-                  label="Esportes e Lazer"
-                  setSelected={setSelected}
-                  selected={selected}
-                >
-                  <BiBasketball color="primary" />
-                </CategoryItem>
-                <CategoryItem
-                  label="Artigos infantis"
-                  setSelected={setSelected}
-                  selected={selected}
-                >
-                  <FaBabyCarriage color="primary" />
-                </CategoryItem>
-                <CategoryItem
-                  label="Animais de estimação"
-                  setSelected={setSelected}
-                  selected={selected}
-                >
-                  <IoPawOutline color="primary" />
-                </CategoryItem>
-                <CategoryItem
-                  label="Moda e beleza"
-                  setSelected={setSelected}
-                  selected={selected}
-                >
-                  <AiOutlineTool color="primary" />
-                </CategoryItem>
-                <CategoryItem
-                  label="Agro e indústria"
-                  setSelected={setSelected}
-                  selected={selected}
-                >
-                  <AiOutlineTool color="primary" />
-                </CategoryItem>
-                <CategoryItem
-                  label="Comércio e escritório"
-                  setSelected={setSelected}
-                  selected={selected}
-                >
-                  <AiOutlineTool color="primary" />
-                </CategoryItem>
-                <CategoryItem
-                  label="Serviços"
-                  setSelected={setSelected}
-                  selected={selected}
-                >
-                  <AiOutlineTool color="primary" />
-                </CategoryItem>
-                <CategoryItem
-                  label="Vagas de emprego"
-                  setSelected={setSelected}
-                  selected={selected}
-                >
-                  <AiOutlineTool color="primary" />
-                </CategoryItem>
+                {categories.map(({ label, icon: Icon }) => (
+                  <CategoryItem
+                    key={label}
+                    label={label}
+                    setSelected={setSelected}
+                    selected={selected}
+                  >
+                    <Icon color="primary" />
+                  </CategoryItem>
+                ))}
               </Flex>
               {selected === "Serviços" && (
                 <Flex
@@ -198,10 +106,14 @@ export default function Form() {
                   padding="24px"
                   maxW={{ sm: "90%", md: "500px" }}
                 >
-                  <Input
-                    heigth="60px"
-                    placeholder="Tempo médio de seus serviços"
-                  />
+                  <Text fontWeight="bold" color="text.heading" mt="4">
+                    Tempo médio do serviço (em dias)*
+                  </Text>
+                  <HStack maxW="320px">
+                    <Button {...dec}>-</Button>
+                    <Input {...input} />
+                    <Button {...inc}>+</Button>
+                  </HStack>
                   <Text fontWeight="bold" color="text.heading" mt="4">
                     Tipo de seu serviço*
                   </Text>
@@ -251,11 +163,7 @@ export default function Form() {
           </VStack>
           <VStack spacing={8} direction="column" alignItems="start" mt="4">
             <Box>
-              <Checkbox
-                size="md"
-                colorScheme="blue"
-                onChange={handleReparation}
-              >
+              <Checkbox size="md" colorScheme="blue">
                 <Text fontWeight="bold" color="text.heading">
                   Ocultar meu telefone neste anúncio
                 </Text>
@@ -270,7 +178,7 @@ export default function Form() {
                   onChange={handleReparation}
                 >
                   <Text fontWeight="bold" color="text.heading">
-                    Seu objeto necessita de serviço de restauração?
+                    Seu objeto necessita de serviço de reparos?
                   </Text>
                 </Checkbox>
                 <Flex>

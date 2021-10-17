@@ -6,6 +6,7 @@ export const ShieldIcon = () => (
     height="40"
     viewBox="0 0 40 40"
     width="40"
+    style={{ maxWidth: 40, width: "100%" }}
   >
     <g fill="none" transform="translate(4)">
       <path
