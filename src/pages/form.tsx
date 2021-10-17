@@ -9,6 +9,7 @@ import {
   Button,
   Checkbox,
   useNumberInput,
+  Select,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { InputText } from "./components/input-text";
@@ -16,9 +17,8 @@ import { CategoryItem } from "./components/category-item";
 import { FaPhoneSquareAlt } from "react-icons/fa";
 import { GenericHeader } from "./components/generic-header";
 import { categories } from "../constants/announce-categorys";
-import { AiOutlineInfoCircle, AiOutlineSkin } from "react-icons/ai";
+import { AiOutlineInfoCircle } from "react-icons/ai";
 import { useHistory } from "react-router-dom";
-
 export default function Form() {
   const [selected, setSelected] = useState("");
   const [reparationNeed, setReparationNeed] = useState(false);
@@ -99,48 +99,42 @@ export default function Form() {
                   </CategoryItem>
                 ))}
               </Flex>
-              {selected === "Serviços" && (
+              {selected === "Eletrônicos e celulares" && (
                 <Flex
                   direction="column"
                   justify={{ sm: "center", md: "start" }}
-                  padding="24px"
                   maxW={{ sm: "90%", md: "500px" }}
                 >
-                  <Text fontWeight="bold" color="text.heading" mt="4">
-                    Tempo médio do serviço (em dias)*
-                  </Text>
-                  <HStack maxW="320px">
-                    <Button {...dec}>-</Button>
-                    <Input {...input} />
-                    <Button {...inc}>+</Button>
-                  </HStack>
-                  <Text fontWeight="bold" color="text.heading" mt="4">
-                    Tipo de seu serviço*
-                  </Text>
                   <VStack
-                    spacing={2}
+                    spacing={6}
                     direction="column"
                     alignItems="start"
                     mt="4"
                   >
-                    <Checkbox size="lg" colorScheme="blue">
-                      Eletrônicos/Informática
-                    </Checkbox>
-                    <Checkbox size="lg" colorScheme="blue" defaultIsChecked>
-                      Roupas/Téxtil
-                    </Checkbox>
-                    <Checkbox size="lg" colorScheme="blue" defaultIsChecked>
-                      Mecânico
-                    </Checkbox>
-                    <Checkbox size="lg" colorScheme="blue" defaultIsChecked>
-                      Elétrico
-                    </Checkbox>
-                    <Checkbox size="lg" colorScheme="blue" defaultIsChecked>
-                      Doméstico
-                    </Checkbox>
-                    <Checkbox size="lg" colorScheme="blue" defaultIsChecked>
-                      Outro
-                    </Checkbox>
+                    <Box>
+                      <Text fontWeight="bold" color="text.heading" mt="4">
+                        Tipo*
+                      </Text>
+                      <Select placeholder="Selecione">
+                        <option value="option1">iPhone</option>
+                        <option value="option2">Samsung</option>
+                        <option value="option3">Asus</option>
+                        <option value="option3">Xiaomi</option>
+                      </Select>
+                    </Box>
+                    <Box>
+                      <Text fontWeight="bold" color="text.heading" mt="4">
+                        Estado*
+                      </Text>
+                      <Select placeholder="Selecione">
+                        <option value="novo">Novo</option>
+                        <option value="usado">Usado</option>
+                        <option value="defeito">Com defeito</option>
+                      </Select>
+                    </Box>
+                    <Box>
+                      <InputText heigth="60px" placeholder="Preço*" />
+                    </Box>
                   </VStack>
                 </Flex>
               )}
