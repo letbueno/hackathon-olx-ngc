@@ -1,20 +1,29 @@
 import React from "react";
-import logo from "./logo.svg";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import "./App.css";
-import Menu from "./pages/components/menu";
-import { Main } from "./pages/components/main";
-import { SearchBox } from "./pages/components/search-box";
-import { Footer } from "./pages/components/footer";
+import Home from "./pages/home";
+import Form from "./pages/form";
+import ServiceForm from "./pages/service-form";
+import Detail from "./pages/detail";
 
 function App() {
   return (
-    <>
-      <Menu />
-      <SearchBox />
-      <Main />
-      <Footer />
-    </>
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/form">
+          <Form />
+        </Route>
+        <Route path="/service-form">
+          <ServiceForm />
+        </Route>
+        <Route path="/detail/:id">
+          <Detail />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 

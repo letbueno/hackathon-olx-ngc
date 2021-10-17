@@ -50,15 +50,15 @@ export function Main() {
 
         <Grid gridTemplateColumns="repeat(4, 1fr)" height="396px" gridGap="2px">
           <Box bg="cyan.500" height="full" />
-          <Box display="flex" flexDirection="column" gridGap="3px">
+          <Box display="flex" flexDirection="column" gridGap="2px">
             <Box bg="cyan.500" height="full" />
             <Box bg="cyan.500" height="full" maxHeight="176px" />
           </Box>
-          <Box display="flex" flexDirection="column" gridGap="3px">
+          <Box display="flex" flexDirection="column" gridGap="2px">
             <Box bg="cyan.500" height="full" maxHeight="176px" />
             <Box bg="cyan.500" height="full" />
           </Box>
-          <Box display="flex" flexDirection="column" gridGap="3px">
+          <Box display="flex" flexDirection="column" gridGap="2px">
             <Box bg="cyan.500" height="full" />
             <Box bg="cyan.500" height="full" maxHeight="176px" />
           </Box>

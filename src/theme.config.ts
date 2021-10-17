@@ -5,6 +5,7 @@ const colors = {
   secondary: {
     orange: "#F28000",
     purple: "rgb(134, 27, 169)",
+    lightPurple: "#f5ecff",
   },
   text: {
     heading: "#4f4f4f",

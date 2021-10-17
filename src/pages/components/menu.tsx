@@ -62,6 +62,8 @@ export const Menu = () => {
           <HStack spacing={8}>
             <FiChevronDown size={12} color="#4f4f4f" />
             <Button
+              as="a"
+              href="/form"
               borderRadius="30px"
               color="white"
               bgColor="secondary.orange"
