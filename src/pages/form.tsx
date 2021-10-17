@@ -3,12 +3,10 @@ import {
   Box,
   Text,
   Heading,
-  Input,
   HStack,
   VStack,
   Button,
   Checkbox,
-  useNumberInput,
   Select,
 } from "@chakra-ui/react";
 import { useState } from "react";
@@ -23,14 +21,6 @@ export default function Form() {
   const [selected, setSelected] = useState("");
   const [reparationNeed, setReparationNeed] = useState(false);
   const history = useHistory();
-  const { getInputProps, getIncrementButtonProps, getDecrementButtonProps } =
-    useNumberInput({
-      step: 1,
-      defaultValue: 1,
-      min: 1,
-      max: 30,
-      precision: 0,
-    });
 
   const handleReparation = () => {
     setReparationNeed(!reparationNeed);
@@ -43,10 +33,6 @@ export default function Form() {
       history.push("/detail/:id");
     }
   };
-
-  const inc = getIncrementButtonProps();
-  const dec = getDecrementButtonProps();
-  const input = getInputProps({ readOnly: true });
 
   return (
     <Flex w="100%" direction="column" pb="4">

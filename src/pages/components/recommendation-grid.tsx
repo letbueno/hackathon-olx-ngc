@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { Grid, Box, Link, Flex, Text, Tag, VStack } from "@chakra-ui/react";
+import { Grid, Box, Link, Flex, Text, Tag } from "@chakra-ui/react";
 
 const products = [
   {

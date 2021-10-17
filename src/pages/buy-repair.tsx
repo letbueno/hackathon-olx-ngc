@@ -4,14 +4,12 @@ import {
   Flex,
   Heading,
   Text,
-  Textarea,
   Center,
   Stack,
   RadioGroup,
   Radio,
 } from "@chakra-ui/react";
 import { useHistory } from "react-router-dom";
-import { FaCamera } from "react-icons/fa";
 import { FiClock, FiArrowRight } from "react-icons/fi";
 import { PrimaryButton } from "../components/primary-button";
 import { MarkerIcon } from "../components/icons/marker-icon";

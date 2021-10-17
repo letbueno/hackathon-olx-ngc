@@ -2,9 +2,7 @@ import React from "react";
 import { Box, Flex, Heading, Text, Textarea, Center } from "@chakra-ui/react";
 import { useHistory } from "react-router-dom";
 import { FaCamera } from "react-icons/fa";
-import { FiClock, FiArrowRight } from "react-icons/fi";
 import { PrimaryButton } from "../components/primary-button";
-import { MarkerIcon } from "../components/icons/marker-icon";
 import { GenericHeader } from "./components/generic-header";
 
 export default function ServiceForm() {

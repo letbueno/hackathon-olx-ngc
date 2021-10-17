@@ -14,7 +14,6 @@ import {
   FiFlag,
   FiShoppingCart,
 } from "react-icons/fi";
-import { BsChat } from "react-icons/bs";
 import { ShieldIcon } from "../components/icons/shield-icon";
 import { PrimaryButton } from "../components/primary-button";
 import Menu from "./components/menu";

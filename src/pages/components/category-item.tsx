@@ -30,7 +30,7 @@ export function CategoryItem({
     if (label !== selected) {
       setColors({ bg: "white", text: "text.heading" });
     }
-  }, [selected]);
+  }, [label, selected]);
 
   return (
     <Flex

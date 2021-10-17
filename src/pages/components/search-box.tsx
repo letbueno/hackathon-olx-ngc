@@ -1,4 +1,4 @@
-import { Box, Flex, Input } from "@chakra-ui/react";
+import { Flex, Input } from "@chakra-ui/react";
 import { FiSearch } from "react-icons/fi";
 
 export function SearchBox() {
